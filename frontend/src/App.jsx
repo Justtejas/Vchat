@@ -1,11 +1,11 @@
 import React from "react";
-import SignUp from "./pages/signup/Signup";
+import Home from "./pages/home/Home";
 
 const App = function () {
 	return (
 		<>
-			<div className='bg-soothingBlue h-screen flex items-center justify-center'>
-				<SignUp />
+			<div className='bg-soothingBlue h-screen p-4 flex items-center justify-center'>
+				<Home />
 			</div>
 		</>
 	);
