@@ -1,11 +1,11 @@
 import React from "react";
-import Login from "./pages/login/Login";
+import SignUp from "./pages/signup/Signup";
 
 const App = function () {
 	return (
 		<>
 			<div className='bg-soothingBlue h-screen flex items-center justify-center'>
-				<Login />
+				<SignUp />
 			</div>
 		</>
 	);

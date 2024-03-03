@@ -2,7 +2,7 @@ import React from "react";
 
 function Login() {
 	return (
-		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
+		<div className='flex flex-col lg:w-1/4 items-center justify-center min-w-96 mx-auto'>
 			<div className='w-full p-16 rounded-lg bg-gray-950 shadow-md bg-opacity-40'>
 				<h1 className=' text-4xl font-semibold text-center text-gray-200'>
 					Login <span className='text-blue-400'>VChat</span>
@@ -32,7 +32,7 @@ function Login() {
 					</div>
 					<div>
 						<button className='btn btn-block btn-sm mt-6'>
-							<span className='text-base'>Login</span>
+							<span className='text-lg text-center'>Login</span>
 						</button>
 					</div>
 				</form>
