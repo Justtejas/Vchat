@@ -1,8 +1,10 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext";
 
 function useSignup() {
 	const [loading, setLoading] = useState(false);
+	const { setAuthUser } = useAuth();
 
 	const signup = async ({ username, password, confirmPassword, gender }) => {
 		const success = handleFormErrors({
@@ -23,7 +25,9 @@ function useSignup() {
 				body: JSON.stringify({ username, password, confirmPassword, gender }),
 			});
 			const data = await res.json();
-			console.log(data);
+			if (data.error) throw new Error(data.error);
+			localStorage.setItem("authUser", JSON.stringify(data));
+			setAuthUser(data);
 		} catch (error) {
 			toast.error(error.message);
 		} finally {
@@ -36,7 +40,6 @@ function useSignup() {
 export default useSignup;
 
 function handleFormErrors({ username, password, confirmPassword, gender }) {
-	toast.error("Please fill all the fields");
 	if (!username || !password || !confirmPassword || !gender) {
 		toast.error("Please fill all the fields");
 		return false;

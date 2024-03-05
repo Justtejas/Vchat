@@ -83,8 +83,12 @@ function SignUp() {
 						selectedCheck={formData.gender}
 					/>
 					<div>
-						<button className='btn btn-block btn-sm mt-4 '>
-							<span className='text-lg text-center'>Sign Up</span>
+						<button className='btn btn-block btn-sm mt-4 ' disabled={loading}>
+							{!loading ? (
+								<span className='text-lg text-center'>Sign Up</span>
+							) : (
+								<span className='loading loading-spinner'></span>
+							)}
 						</button>
 					</div>
 				</form>
