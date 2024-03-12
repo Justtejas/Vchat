@@ -8,7 +8,7 @@ import { useAuth } from "./context/AuthContext";
 const App = function () {
 	const { authUser } = useAuth();
 	return (
-		<div className='bg-soothingBlue  bg-opacity-85 h-screen p-4 flex items-center justify-center'>
+		<div className='bg-soothingBlue bg-opacity-95 h-screen p-4 flex items-center justify-center'>
 			<Routes>
 				<Route
 					path='/'
