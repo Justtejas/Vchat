@@ -1,5 +1,6 @@
 const Conversation = require("../models/conversation.model.js");
 const Message = require("../models/message.model.js");
+const { getRecieverSocketId, io } = require("../socket/socket.js");
 const sendMessage = async (req, res) => {
 	try {
 		const { id: receiver } = req.params;
@@ -23,6 +24,11 @@ const sendMessage = async (req, res) => {
 			conversation.messages.push(newMessage._id);
 		}
 		await Promise.all([conversation.save(), newMessage.save()]);
+
+		const receiverSocketId = getRecieverSocketId(receiver);
+		if (receiverSocketId) {
+			io.to(receiverSocketId).emit("newMessage", newMessage);
+		}
 		res.status(201).json(newMessage);
 	} catch (error) {
 		console.log("Error in sendMessage Controller", error);

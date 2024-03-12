@@ -31,9 +31,12 @@ function Search() {
 				placeholder='Search Users'
 				value={search}
 				onChange={(e) => setSearch(e.target.value)}
-				className='input bg-slate-700 input-bordered rounded-full'
+				className='input bg-slate-700 input-bordered mx-auto rounded-full text-white focus:ring-2 focus:ring-sky-400 focus:outline-none'
 			/>
-			<button type='submit' className='btn btn-circle bg-sky-400 text-white'>
+			<button
+				type='submit'
+				className='btn btn-circle ml-5 mr-5 bg-sky-400 text-white'
+			>
 				<FaSearch className='w-6 h-6 outline-none mt-1' />
 			</button>
 		</form>

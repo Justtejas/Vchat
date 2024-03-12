@@ -13,6 +13,7 @@ function Message({ messages }) {
 		.toUTCString()
 		.split(" ")[4]
 		.slice(0, 5);
+	const popMessage = messages.pop ? "pop" : "";
 	return (
 		<div className={`chat ${messageClass}`}>
 			<div className='chat-image avatar'>
@@ -20,7 +21,7 @@ function Message({ messages }) {
 					<img src={profilePic} alt='user avatar' />
 				</div>
 			</div>
-			<div className={`chat-bubble text-white ${messageBG}`}>
+			<div className={`chat-bubble text-white ${messageBG} ${popMessage}`}>
 				<span className='text-white'>{messages.message}</span>
 			</div>
 			<div className='chat-footer opacity-50 text-xs mt-2'>

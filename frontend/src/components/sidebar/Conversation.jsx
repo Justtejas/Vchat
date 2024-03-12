@@ -1,9 +1,18 @@
 import React from "react";
-import { useConversation } from "../../state/useConversation";
+import useConversation from "../../state/useConversation";
+import { useSocketContext } from "../../context/SocketContext";
 
 function Conversation({ conversation, emoji, lastIdx }) {
 	const { selectedConversation, setSelectedConversation } = useConversation();
 	const isSelected = selectedConversation?._id === conversation._id;
+	const { onlineUsers } = useSocketContext();
+	const isOnline = onlineUsers.includes(conversation._id);
+	const showEmoji = () => {
+		//show emoji if user is online
+		if (isOnline) {
+			return emoji;
+		}
+	};
 	return (
 		<>
 			<div
@@ -12,7 +21,7 @@ function Conversation({ conversation, emoji, lastIdx }) {
 				}`}
 				onClick={() => setSelectedConversation(conversation)}
 			>
-				<div className='avatar online'>
+				<div className={` avatar ${isOnline ? "online" : ""}`}>
 					<div className='w-12 rounded-full'>
 						<img src={conversation.profilePic} alt='user avatar' />
 					</div>
@@ -20,7 +29,7 @@ function Conversation({ conversation, emoji, lastIdx }) {
 				<div className='flex flex-col flex-1'>
 					<div className='flex gap justify-between'>
 						<p className='font-bold text-white'>{conversation.username}</p>
-						<span className='text-xl'>{emoji}</span>
+						<span className='text-xl'>{showEmoji()}</span>
 					</div>
 				</div>
 			</div>
