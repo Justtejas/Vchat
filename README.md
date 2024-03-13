@@ -5,7 +5,8 @@ Vchat is a chat application that allows users to communicate with each other in 
 
 ## Features
 - Real-time chat
-- Authentication
+- User Authentication
+- User avatars
 - Online/Offline status
 - New message notifications
 - User search
@@ -20,15 +21,15 @@ Vchat is a chat application that allows users to communicate with each other in 
 - JWT
 
 ## Installation
-1. Clone the repository ```bash git clone https://github.com/Justtejas/Vchat.git ```
-2. Install dependencies ```bash npm install ```
+1. Clone the repository ``` git clone https://github.com/Justtejas/Vchat.git ```
+2. Install dependencies ``` npm install ```
 3. Create a .env file in the root directory and add the following environment variables:
    - MONGO_URI
    - JWT_SECRET
    - NODE_ENV
    - PORT
-4. Start the server ```bash npm run server ```
-5. Start the client ```bash cd frontend && npm run dev```
+4. Start the server ``` npm run server ```
+5. Start the client ``` cd frontend && npm run dev```
 6. Now you can access the application at http://localhost:3000
 7. Enjoy!
 
