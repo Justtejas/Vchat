@@ -1,4 +1,4 @@
-# [Vchat](https://www.vchat-7gda.onrender.com)
+# [Vchat](https://vchat-7gda.onrender.com/)
 Deployed on [Render](https://www.render.com) (on free tier so it may take a few seconds to load initially)
 
 Vchat is a chat application that allows users to communicate with each other in real-time.
