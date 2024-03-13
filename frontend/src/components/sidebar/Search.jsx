@@ -10,9 +10,10 @@ function Search() {
 	const { conversations } = useGetConversations();
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!search) return;
+		if (!search)
+			return toast.error("Please enter a username", { duration: 1500 });
 		if (search.length < 3) {
-			return toast.error("Username should be atleast 3 characters long");
+			return toast.error("Username should be atleast 3 characters long", { duration: 1500 });
 		}
 		const users = conversations.find((conversation) => {
 			return conversation.username.toLowerCase().includes(search.toLowerCase());
@@ -21,7 +22,7 @@ function Search() {
 			setSelectedConversation(users);
 			setSearch("");
 		} else {
-			toast.error("User not found");
+			toast.error("User not found", { duration: 1500 });
 		}
 	};
 	return (
@@ -35,7 +36,7 @@ function Search() {
 			/>
 			<button
 				type='submit'
-				className='btn btn-circle ml-5 mr-5 bg-sky-400 text-white'
+				className='btn btn-circle mx-auto bg-sky-900 text-white'
 			>
 				<FaSearch className='w-6 h-6 outline-none mt-1' />
 			</button>

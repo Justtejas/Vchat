@@ -24,7 +24,7 @@ function useSendMessage() {
 			}
 			setMessages([...messages, data]);
 		} catch (error) {
-			toast.error(error.message);
+			toast.error(error.message, { duration: 1500 });
 		} finally {
 			setLoading(false);
 		}
