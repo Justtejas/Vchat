@@ -1,27 +1,29 @@
-import { useEffect } from "react";
 import Messages from "./Messages";
 import MessageInput from "./MessageInput";
-import { AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineMessage, AiOutlineClose } from "react-icons/ai";
 import useConversation from "../../state/useConversation";
 import { useAuth } from "../../context/AuthContext";
 
 function MessageContainer() {
 	const { selectedConversation, setSelectedConversation } = useConversation();
-	useEffect(() => {
-		return () => {
-			setSelectedConversation(null);
-		};
-	}, [setSelectedConversation]);
+	const closeSelectedConversation = () => {
+		setSelectedConversation(null);
+	};
 	return (
 		<div className='md:min-w-[450px] flex flex-col'>
 			{!selectedConversation ? (
 				<NoChat />
 			) : (
 				<>
-					<div className=' bg-black bg-opacity-80 px-4 py-2 mb-2'>
+					<div className=' bg-black bg-opacity-80 px-4 py-2 mb-2 flex'>
 						<span className='text-white font-bold'>
 							{selectedConversation.username}
 						</span>
+						<AiOutlineClose
+							className='ml-auto text-white w-6 h-6'
+							onClick={closeSelectedConversation}
+							cursor={"pointer"}
+						/>
 					</div>
 					<Messages />
 					<MessageInput />

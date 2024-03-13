@@ -22,6 +22,7 @@ const App = function () {
 					path='/signup'
 					element={authUser ? <Navigate to='/' /> : <Signup />}
 				/>
+				<Route path='*' Component={() => <Navigate to='/' />} />
 			</Routes>
 			<Toaster />
 		</div>

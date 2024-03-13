@@ -19,7 +19,7 @@ app.use("/api/user", userRouter);
 app.use(express.static(path.join(_dirname, "/frontend/dist")));
 
 app.get("*", (req, res) => {
-	res.sendFile(path.join(_dirname, "frontend", "dist", "index.html"));
+	res.send(path.join(_dirname, "/frontend/dist/index.html"));
 });
 server.listen(PORT, () => {
 	connectDB();

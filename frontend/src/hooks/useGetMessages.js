@@ -14,7 +14,7 @@ function useGetMessages() {
 				if (data.error) throw new Error(data.error);
 				setMessages(data);
 			} catch (error) {
-				toast.error(error.message);
+				toast.error(error.message, { duration: 1500 });
 			} finally {
 				setLoading(false);
 			}
